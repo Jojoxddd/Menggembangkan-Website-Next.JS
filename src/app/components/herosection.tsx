@@ -31,6 +31,9 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
+      <div className="relative z-10 text-center px-4">
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#080808] via-[#080808]/80 to-transparent z-20 pointer-events-none"></div>
     </section>
   );
 };

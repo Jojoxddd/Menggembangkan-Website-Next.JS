@@ -19,20 +19,33 @@ export default function Home() {
         <HeroSection></HeroSection>
         <Container className="my-5">
           <Row className="my-4">
-            <Col md={6} className="align-self-center mb-3">
-            <h2>About Us</h2>
-            <h6>What we do?</h6>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ea nostrum dicta pariatur! Repudiandae, veniam libero! Minus iste nam consectetur eaque quasi, porro asperiores?
-            </p>
-            <Button variant="info">Learn More</Button>
-            </Col>
-            <Col md={6}>
-            <p>
-              <Image src="/images/aboutus.jpg" alt="About us" width={500} height={300}></Image>
-            </p>
-            </Col>
-          </Row>
+  
+  <Col md={6} className="align-self-center mb-3">
+    <h2 className="text-danger fw-bold" style={{ textShadow: '0 0 10px rgba(220, 53, 69, 0.5)' }}>About Us</h2>
+    <h6 className="text-white-50">What we do?</h6>
+    <p className="text-white">
+      Menawarkan penjelajahan dimensi baru upside down. Dimana experience seperti ini hanya bisa dirasakan disini!
+    </p>
+    <Button variant="danger">Learn More</Button> 
+  </Col>
+
+  
+  <Col md={6}>
+    <p>
+      <Image 
+        src="/images/upsidedown.jpg" 
+        alt="About us" 
+        width={500} 
+        height={300}
+        style={{
+          borderRadius: '15px',                        
+          boxShadow: '0 0 30px rgba(220, 53, 69, 0.6)', 
+          border: '1px solid rgba(220, 53, 69, 0.5)'   
+        }}
+      ></Image>
+    </p>
+  </Col>
+</Row>
         </Container>
         <WorkSection></WorkSection>
         <ServiceSection ></ServiceSection>
