@@ -15,7 +15,6 @@ import Footer from "./components/footer";
 export default function Home() {
   return (
     <div>
-      <Navbar />
       <main>
         <HeroSection></HeroSection>
         <Container className="my-5">

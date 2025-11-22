@@ -1,50 +1,38 @@
-"use client"
-import Carousel from "react-bootstrap/Carousel";
+import React from 'react';
+import Image from 'next/image';
 
-interface Slide{
-    title: String;
-    subtitle: String;
-    imageUrl: string;
-}
+const HeroSection = () => {
+  return (
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image dengan Overlay Gelap */}
+      <div className="absolute inset-0 z-0">
+        {/* Pastikan Anda punya gambar yang agak gelap/mistis di folder public */}
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black"></div>
+      </div>
 
-const HeroSection=() => {
-    const slides: Slide[]=[
-        {
-            title: "First slide label",
-            subtitle: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, doloremque.",
-            imageUrl: '/images/banner_01.jpg',
-        },
-        {
-            title: "Second slide label",
-            subtitle: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor repellendus nulla est omnis sequi.",
-            imageUrl: "/images/banner_02.jpg",
-        },
-        {
-            title: "Third slide label",
-            subtitle: "Lorem ipsum dolor sit amet.",
-            imageUrl: "/images/banner_03.jpg",
-        },
-    ]
-    return(
-        <Carousel fade interval={4000} data-bs-theme="dark">
-            {slides.map((slide,index) =>(
-                <Carousel.Item key={index}>
-                    <div
-                        style={{
-                            backgroundImage:`url(${slide.imageUrl})`,
-                            backgroundSize:"cover",
-                            backgroundPosition:"center",
-                            height:"60vh",
-                        }}>
-                    </div>
-                    <Carousel.Caption>
-                        <h1 className="display-4 fw-bold">{slide.title}</h1>
-                        <p className="lead">{slide.subtitle}</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            )
-            )}
-        </Carousel>
-    )
-}
+      <div className="relative z-10 text-center px-4">
+        <p className="text-red-500 font-mono text-lg mb-4 tracking-[0.5em] animate-pulse">
+          WELCOME TO THE UPSIDE DOWN
+        </p>
+        
+        <h1 className="text-6xl md:text-9xl font-extrabold text-transparent st-title mb-8">
+          STRANGERS THINGS<br/>
+          <span className="text-4xl md:text-7xl text-red-600" style={{ textShadow: 'none', WebkitTextStroke: '0px' }}>THINGS</span>
+        </h1>
+
+        <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-300 font-mono border-l-2 border-red-600 pl-4 text-left">
+        Siap menjelajah dimensi baru?
+        </p>
+
+        <div className="mt-10">
+          <button className="px-8 py-3 border-2 border-red-600 text-red-600 font-bold uppercase tracking-widest hover:bg-red-600 hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.5)]">
+            Mulai Petualangan
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default HeroSection;

@@ -1,49 +1,35 @@
-'use client'
-import {use} from 'react';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from 'react';
+import Link from 'next/link';
 
-function navbar(){
-    return (
-        <Navbar expand="lg" className='bg-body-tertiary'>
-            <Container fluid>
-                <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
-                <Navbar.Collapse id="navbarScroll">
-                    <Nav
-                        className="me-auto my-2 my-lg lg-0"
-                        style={{maxHeight:'180px'}}
-                        navbarScroll
-                    >
-                        <Nav.Link href='#action1'>Home</Nav.Link>
-                        <Nav.Link href='#action2'>Home</Nav.Link>
-                        <NavDropdown title="Link" id="navbarScrollingDropDown">
-                            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Action</NavDropdown.Item>
-                            <NavDropdown.Divider></NavDropdown.Divider>
-                            <NavDropdown.Item href="#action3">Something else here</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="#" disabled>
-                            Link
-                        </Nav.Link>
-                    </Nav>
-                    <Form className='d-flex'>
-                        <Form.Control
-                            type="search"
-                            placeholder='Search'
-                            className='me-2'
-                            aria-label='Search'
-                        ></Form.Control>
-                        <Button variant='outline-success'>Search</Button>
-                    </Form>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
-    )
-}
+const Navbar = () => {
+  return (
+    <nav className="fixed w-full z-50 top-0 transition-all duration-300 bg-black/80 backdrop-blur-sm border-b border-red-900/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo Style Stranger Things */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="text-3xl font-bold text-red-600 tracking-widest uppercase st-title hover:text-red-500 transition-colors" style={{ textShadow: '0 0 15px rgba(220, 38, 38, 0.8)' }}>
+              STRANGER WEB
+            </Link>
+          </div>
+          
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              {['Home', 'About', 'Services', 'Contact'].map((item) => (
+                <Link 
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-gray-300 hover:text-red-500 hover:scale-110 transition-all duration-300 px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wider"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default navbar;
+export default Navbar;
